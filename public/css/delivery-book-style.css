@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url("../img/background.jpeg") left top no-repeat;
+    background-size: 100%;
+}
+
+.all {
+    position: relative;
+}
+
+.common {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.top {
+    height: 80px;
+    background: url("../img/a.jpg") left top no-repeat;
+    margin-top: 15px;
+}
+
+.title {
+    color: black;
+    font-size: 50px;
+    padding-left: 50px;
+}
+
+.middle {
+    margin-top: 0;
+    border-left: 3px solid #9d9d9d;
+    border-right: 3px solid #9d9d9d;
+}
+
+.active {
+    width: 90%;
+    padding-top: 15px;
+    padding-left: 15px;
+    border: 1px solid darkslategrey;
+    margin: 15px auto 15px;
+}
+
+.active span {
+    font-size: 20px;
+}
+
+.active div {
+    margin-top: 15px;
+    font-size: 20px;
+    line-height: 20px;
+    padding-bottom: 15px;
+}
+
+.bottom {
+    position: relative;
+    left: 5%;
+    bottom: 0;
+}
+
+.bottom input {
+    width: 60%;
+    height: 40px;
+    line-height: 30px;
+    display: inline-block;
+}
+
+.bottom button {
+    width: 5%;
+    height: 40px;
+    border: 1px solid #a6e1ec;
+}
