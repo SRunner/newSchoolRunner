@@ -3,5 +3,4 @@ export default function (done) {
     if (err) done.fail(err);
     else done();
   }
-
 }

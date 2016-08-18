@@ -1,31 +1,21 @@
-#loginCente {
-    width: 90%;
-    height: 510px;
-    margin: 0px auto;
+body {
+    margin-top: 0;
 }
 
-#login {
-    margin-top: 45px;
-    border-radius: 5px;
-    border: solid 2px #9d9d9d;
-    width: 300px;
-    height: 400px;
-    background-color: lightblue;
-    padding-top: 140px;
+.login {
+    border-radius: 10px;
+    border: #c0c0c0 solid 3px;
+    margin: 30px 0;
 }
 
-.divClass {
-    padding-bottom: 20px;
-    font-size: medium;
+.distance {
+    margin-bottom: 30px;
 }
 
-.inputClass {
-    margin-left: 5px;
-    border-radius: 5px;
-}
-
-#btnLogin {
-    margin-right: 20px;
+.login_title {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 25px;
 }
 
 .button-center {

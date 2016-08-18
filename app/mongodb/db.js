@@ -1,9 +1,13 @@
 import mongoose from'mongoose';
 module.exports = {
-  connect: function () {
-    mongoose.connect('mongodb://localhost/login');
+  connect: function (mode,callback) {
+    let url = 'mongodb://localhost/newSchoolRunner';
+    if(mode === 'test') {
+      url = 'mongodb://localhost/newSchoolRunner-demo';
+    }
+    mongoose.connect(url,callback);
   },
-  close: function () {
-    mongoose.connection.close();
+  close: function (callback) {
+    mongoose.connection.close(callback);
   }
 };

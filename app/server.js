@@ -3,7 +3,7 @@ import webpackConfig from '../webpack.config';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import express from 'express';
-import loginApi from "./api/api.js";
+import apiRouter from "./api/index.js";
 import bodyParse from 'body-parser';
 import db from './mongodb/db';
 const app = express();
@@ -25,14 +25,14 @@ app.use(webpackHotMiddleware(compiler, {
 }));
 
 app.use(express.static('./public'));
-app.use("/api", loginApi);
-/*
- app.post('/login',mongodb.login);*/
-/*app.post('/personal',mongodb.modify);*/
-
-app.listen(3000, function () {
-  db.connect();
-  console.log('Listening on 3000');
-});
+app.use("/api", apiRouter);
+if(require.main === module) {
+  app.listen(3000, function () {
+    db.connect((err) => {
+      if(err) return console.error('db connection failed');
+      console.log('Listening on 3000');
+    });
+  });
+}
 
 export default app;
