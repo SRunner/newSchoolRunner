@@ -1,9 +1,9 @@
-newSchoolRunner
-===============
+ES6 Project Demo
+=================
 
-CI status: ![Build Status](https://travis-ci.org/SRunner/newSchoolRunner.svg?branch=master)
+CI status: ![Build Status](https://travis-ci.org/SRunner/schoolRunner.svg?branch=master)
 
-A newSchoolRunner project, which includes:
+A basic es6 project, which includes :
 
 1. webpack
 2. babel

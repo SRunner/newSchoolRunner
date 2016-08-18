@@ -1,0 +1,17 @@
+.header {
+    margin-top: 0;
+    height: 80px;
+    background-color: #ece8cf;
+}
+
+.banana {
+    margin-left: 80px;
+    width: 80px;
+    height: 80px;
+}
+
+.runner {
+    width: 100px;
+    height: 80px;
+    overflow: hidden;
+}
