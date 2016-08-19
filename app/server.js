@@ -25,6 +25,7 @@ app.use(webpackHotMiddleware(compiler, {
 }));
 
 app.use(express.static('./public'));
+console.log("------server------");
 app.use("/api", apiRouter);
 if(require.main === module) {
   app.listen(3000, function () {

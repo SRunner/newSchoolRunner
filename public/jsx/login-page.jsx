@@ -32,16 +32,15 @@ class Login extends React.Component {
           if (res.statusCode === 201 && res.body.newUser === true) {
             console.log(res.body.message);
             console.log(res.body.detail);
-            // location.href = '/#/personalInfoPage';
+            window.location.href='/#/personalInfoPage?session=' +res.body.detail+'&userId='+res.body.userId;
           }
           if (res.statusCode === 201 && res.body.newUser === false) {
             console.log(res.body.detail);
             console.log(res.body.message);
-            // location.href = '/#/homePage';
+            window.location.href='/#/homePage';
           }
           if (res.statusCode === 401) {
             console.log(res.text);
-            location.href = '/#/login-page';
           }
       })
   }

@@ -17,9 +17,10 @@ router.post('/', function (req, res, next) {
     User.findOne({userId: userId}, function (err, user) {
       if (err) return next(err);
       if (user == null) {
-        return res.status(201).json({message: "SUCCESS", newUser: true,detail:detail})
+        return res.status(201).json({message: "SUCCESS", newUser: true,detail:detail,userId:userId});
+        /*window.location.href = "main.html?detail=" + detail;*/
       }
-      return res.status(201).json({message: "SUCCESS", newUser: false,detail:detail})
+      return res.status(201).json({message: "SUCCESS", newUser: false,detail:detail,userId:userId});
     });
   });
 });

@@ -1,5 +1,5 @@
 {
-  "name": "newSchoolRunner",
+  "name": "es6-project-demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -23,7 +23,6 @@
     "webpack-hot-middleware": "^2.12.2"
   },
   "dependencies": {
-    "async": "^2.0.1",
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
     "bootstrap-webpack": "0.0.5",
