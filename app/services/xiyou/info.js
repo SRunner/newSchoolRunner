@@ -1,5 +1,6 @@
 import request from 'superagent';
 import {User} from '../../mongodb/schema';
+
 function info({userId, email, tel, sessionKey}, callback) {
   request.get('http://api.xiyoumobile.com/xiyoulibv2/user/info')
     .send({session: sessionKey})

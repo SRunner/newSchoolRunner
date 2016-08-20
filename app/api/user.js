@@ -4,6 +4,7 @@ import {User} from '../mongodb/schema';
 import _ from 'lodash';
 import xiyouinfo from "../services/xiyou/info"
 import Check from '../../public/tool/validate';
+
 const router = express.Router();
 router.post('/', function (req, res, next) {
   let userId = req.body.userId;
