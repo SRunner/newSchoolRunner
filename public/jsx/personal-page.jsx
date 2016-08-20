@@ -43,7 +43,7 @@ class Personal extends React.Component {
     let startPos = window.location.toString().indexOf("=");
     let endPos = window.location.toString().indexOf("&");
     let session = window.location.toString().substring(startPos + 1, endPos);
-    /*alert(session + "--------------");*/
+    alert(session + "--------------");
     return session;
   }
 
@@ -57,33 +57,40 @@ class Personal extends React.Component {
         tel: this.state.tel
       })
       .end((err, res)=> {
-        if (err) return console.error(err);
-        if (res.statusCode === 400) {
-          console.log(res.statusCode);
-          console.log(res.text);
-          location.href = '/#/personalInfoPage';
+        if (err) {
+          if (res.statusCode === 400) {
+            console.log("400");
+            console.log(res.statusCode);
+            console.log(res.text);
+            location.href = '/#/personalInfoPage';
+          }
+          if (res.statusCode === 403) {
+            alert("您未登录，请先登录!");
+            console.log("403");
+            console.log(res.statusCode);
+            console.log(res.text);
+            location.href = '/#/login-page';
+          }
+          if (res.statusCode === 409) {
+            console.log("409");
+            console.log(res.statusCode);
+            console.log(res.text);
+            location.href = '/#/homePage'
+          }
         }
         if (res.statusCode === 201) {
-          console.log(res.statusCode);
-          console.log(res.text);
-          location.href = '/#/homePage'
-        }
-        if (res.statusCode === 403) {
-          console.log(res.statusCode);
-          console.log(res.text);
-          window.location.href='/#/login-pag';
-        }
-        if (res.statusCode === 409) {
+          console.log("201");
           console.log(res.statusCode);
           console.log(res.text);
           location.href = '/#/homePage'
         }
       })
   }
+
   render() {
     return (
       <div className="container" id="personalInfo">
-        <form role="form" >
+        <form role="form">
           <h2>个人信息</h2>
           <div className="form-group">
             <label htmlFor="inputEmail">电子邮箱</label>
@@ -101,7 +108,6 @@ class Personal extends React.Component {
     )
   }
 }
-
 class PersonalInfo extends React.Component {
   render() {
     return (
