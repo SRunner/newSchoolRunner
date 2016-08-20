@@ -23,14 +23,12 @@ app.use(webpackDevMiddleware(compiler, {
 app.use(webpackHotMiddleware(compiler, {
   log: console.log
 }));
-
 app.use(express.static('./public'));
-console.log("------server------");
 app.use("/api", apiRouter);
-if(require.main === module) {
+if (require.main === module) {
   app.listen(3000, function () {
     db.connect((err) => {
-      if(err) return console.error('db connection failed');
+      if (err) return console.error('db connection failed');
       console.log('Listening on 3000');
     });
   });

@@ -44,7 +44,6 @@ class Login extends React.Component {
           }
       })
   }
-
   onChangeUserId(event) {
     this.setState({
       userId: event.target.value

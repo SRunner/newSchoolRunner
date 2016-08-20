@@ -18,6 +18,7 @@ describe('sessions-spec', () => {
   afterEach((done)=>{
     db.close(finish(done));
   });
+<<<<<<< HEAD
   it('用户输入的ID与密码全都正确，并且不是第一次登录：', (done) => {
     new User({userId: 's03134054', password: '123456'}).save(function (err, data) {
       if (err) return done.fail(err);
@@ -34,6 +35,19 @@ describe('sessions-spec', () => {
   });
 
   it('用户输入的ID与密码全都正确，并且是第一次登录：', (done) => {
+=======
+  xit('用户输入的ID与密码全都正确，并且不是第一次登录：', (done) => {
+    async.waterfall([
+      (cb) => new User({userId: 's03134054', password: '123456'}).save((err, data) => {
+        if (err) return done.fail(err);
+        request(app).post('/api/sessions').send({userId: 's03134054', password: '123456'})
+          .expect(201, {message: "SUCCESS", newUser: false}, cb)
+      })
+    ],finish(done));
+  });
+
+  xit('用户输入的ID与密码全都正确，并且是第一次登录：', (done) => {
+>>>>>>> 0f4c9027bdcbccc8ee150982c6eff391350366e2
     async.waterfall([
       (cb) => request(app).post('/api/sessions').send({userId: 's03134059', password: '123456'})
         .expect(201, {message: "SUCCESS", newUser: true}, cb)
@@ -59,7 +73,11 @@ describe('sessions-spec', () => {
       ],finish(done));
     });
   });
+<<<<<<< HEAD
   it('用户输入的用户名密码不匹配：', (done) => {
+=======
+  xit('用户输入的用户名密码不匹配：', (done) => {
+>>>>>>> 0f4c9027bdcbccc8ee150982c6eff391350366e2
     async.waterfall([
       (cb) => request(app).post('/api/sessions').send({userId: 's03134054', password: '122456'})
         .expect(401, "用户名或密码有误，登录失败", cb)

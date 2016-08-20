@@ -30,4 +30,5 @@ function info({userId, email, tel, sessionKey}, callback) {
       callback(null, statecode);
     })
 }
+
 export default info;
