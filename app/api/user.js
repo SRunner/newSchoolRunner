@@ -21,16 +21,19 @@ router.post('/', function (req, res, next) {
     return res.status(400).send("邮箱格式不正确");
   }
   let correctTel = tel.length === 11;
-  let re = /(\d{11})||^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))/;
-  if (!re.test(tel))
+  console.log("correctTel :" +correctTel);
+  console.log("correctTel: ",+correctTel);
+  var reg = new RegExp("^[0-9]*$");
+  console.log("reg: "+reg.test(tel));
+  if ((reg.test(tel)&&correctTel)==false)
   {
     console.log("电话号码格式不正确");
     return res.status(400).send("电话号码格式不正确");
-  }
+  }/*
   if (sessionKey == 'ACCOUNT_ERROR') {
     console.log("用户未登录");
     return res.status(403).send("用户未登录");
-  }
+  }*/
   User.findOne({userId: userId}, function (err, user) {
     if (err) return next(err);
     console.log("User:" +user);
@@ -42,6 +45,11 @@ router.post('/', function (req, res, next) {
           let detail = response.body.Detail;
           let name=detail.Name;
           console.log(name);
+          if(name==undefined)
+          {
+            console.log("用户未登录");
+            return res.status(403).send("用户未登录");
+          }
           let studentInformation = new User({
             name:name,
             userId: userId,
