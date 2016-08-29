@@ -45,7 +45,6 @@ class Books extends React.Component {
               }
             }
             if (res.statusCode === 201) {
-              console.log('----------' + res.body.borrowList);
               if (res.body.borrowList === 'NO_RECORD') {
                 this.setState({borrowList: ''});
               } else {
@@ -100,10 +99,10 @@ class Books extends React.Component {
 
 
   render() {
-    const borrowList = _.map(this.state.borrowList, (borrow, index) =>
-      <div key={index} className="eachBook">
-        <a className="bookLink" target='_blank'>{borrow.Title}</a>
-        <button type="button" className="btn btn-default btn-borrow" onClick={this._onClickRenew(index)}>续 借</button>
+    const borrowList = _.map(this.state.borrowList, (borrow, id) =>
+      <div key={id} className="eachBook">
+        <Link to={"/book-detail/:barcode" + borrow.Barcode} className="bookLink">{borrow.Title}</Link>
+        <button type="button" className="btn btn-default btn-borrow" onClick={this._onClickRenew(id)}>续 借</button>
         <span className="btn-borrow">到期时间：{borrow.Date}</span>
       </div>
     );

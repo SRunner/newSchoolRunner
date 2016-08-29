@@ -8,6 +8,7 @@ import bookPage from './jsx/book-page.jsx';
 import App from './jsx/app.jsx';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import BookDetail from './jsx/book-detail.jsx'
 require('jquery');
 require("bootstrap-webpack");
 
@@ -20,6 +21,7 @@ const route = <Router history={hashHistory}>
     <Route path='/bookCircle-page' component={bookCircle}/>
     <Route path='/modify-personal-page' component={modifyPersonalPage}/>
     <Route path='/book-page' component={bookPage}/>
+    <Route path='/book-detail/:barcode' component={BookDetail}/>
   </Route>
 </Router>;
 
