@@ -18,7 +18,7 @@ router.post('/', function (req, res, next) {
       }
       xiyouDetail(barcode, function (err, bookdetail) {
         if (err) next(err);
-        var departmentbook =   _.find(bookdetail.CirculationInfo, book=> {
+        var departmentbook = _.find(bookdetail.CirculationInfo, book=> {
           if (book.Barcode === barcode) {
             return book.Department;
           }

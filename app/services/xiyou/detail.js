@@ -7,7 +7,7 @@ function xiyouDetail(barcode, callback) {
     .end((err, response) => {
       if (err)  return callback(err);
       const bookdetail = response.body.Detail;
-      callback(null,bookdetail);
+      callback(null, bookdetail);
     });
 }
 
