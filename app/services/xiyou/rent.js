@@ -6,7 +6,7 @@ function xiyouRent(detail, callback) {
     .send({session: detail})
     .end((err, response) => {
       if (err)  return callback(err);
-      let information = response.body.Detail;
+      const information = response.body.Detail;
       callback(null, information, detail);
     });
 }

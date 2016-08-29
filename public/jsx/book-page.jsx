@@ -4,6 +4,7 @@ import Header from './header.jsx';
 require('../css/header.css');
 import Footer from './footer.jsx';
 require('../css/footer.css');
+import {Link} from 'react-router'
 import request from 'superagent';
 import _ from 'lodash';
 import studentrent from '../tool/bookdetail.js'
@@ -33,7 +34,6 @@ class Books extends React.Component {
         this.setState({userName: res.body.userName});
         this.setState({department: res.body.department});
         this.setState({readerType: res.body.readerType});
-        console.log(202);
         request.post('/api/users/current/books/borrowed')
           .end((err, res) => {
             if (err) {
@@ -52,13 +52,13 @@ class Books extends React.Component {
   }
 
   render() {
-    const borrowList = _.map(this.state.borrowlist, (index, id) =>
-      <div key={id} className="eachBook">
-        <a className="bookLink" target='_blank'>{index.Title}</a>
-        <button type="button" className="btn btn-default btn-borrow">续 借</button>
-        <span className="btn-borrow">到期时间：{index.Date}</span>
-      </div>
-    );
+      const borrowList = _.map(this.state.borrowlist, (index, id) =>
+        <div key={id} className="eachBook">
+          <Link to={"/book-detail/:barcode"+index.Barcode} className="bookLink" >{index.Title}</Link>
+          <button type="button" className="btn btn-default btn-borrow">续 借</button>
+          <span className="btn-borrow">到期时间：{index.Date}</span>
+        </div>
+      );
     const booklist = studentrent(this.state.borrowlist, this.state.readerType);
     return (
       <div className="container" id="booksContain">
