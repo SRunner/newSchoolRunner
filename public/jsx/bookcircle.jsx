@@ -19,7 +19,6 @@ class MessageList extends React.Component {
   }
 
   componentWillMount() {
-    console.log('---------componentWillMount')
     request.get('/api/users/current')
       .end((err, res) => {
         if (err) {

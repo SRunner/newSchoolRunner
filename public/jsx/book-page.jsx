@@ -97,7 +97,6 @@ class Books extends React.Component {
     }
   }
 
-
   render() {
     const borrowList = _.map(this.state.borrowList, (borrow, id) =>
       <div key={id} className="eachBook">

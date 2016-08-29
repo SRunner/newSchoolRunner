@@ -19,7 +19,7 @@ class Detail extends React.Component {
       department: ''
     };
   }
-
+  
   componentDidMount() {
     let bookurl = this.getBookValue();
     request.get('/api/users/current')
